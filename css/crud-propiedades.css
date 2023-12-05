@@ -1,0 +1,36 @@
+table {
+    font-weight: 100;
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px; 
+    border: 1px solid #ddd;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) si el contenido es demasiado largo */
+}
+
+th {
+    font-weight: 200;
+    font-size: 24px;
+}
+
+.contenido {
+    min-height: 60vh;
+}
+
+.card {
+    overflow: scroll;
+}
+
+.table-col {
+    overflow: scroll;
+}
+
+.thumbnail-image{
+    max-width: 100%;
+    max-height: 200px;
+}

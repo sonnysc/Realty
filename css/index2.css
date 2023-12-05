@@ -1,0 +1,194 @@
+body {
+    font-family: FONTSPRING DEMO - TT Commons Pro Demibold;
+    font-weight: 100;
+}
+
+/* Cuadro de búsqueda*/
+.busqueda {
+	background-image: url('https://www.foryourmarriage.org/wp-content/uploads/2018/02/iStock-905902112_v2-e1631291645334.jpg');
+	background-color: rgb(179, 179, 179);
+	background-blend-mode: multiply;
+	background-position: center;
+	background-size: cover;
+	height: 600px;
+	padding: 20px 40px 40px 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+    color: white;
+    font-size: 76px;
+    font-weight: 500;
+    line-height: 1em;
+    margin-bottom: 20px;
+}
+
+.input-group-text {
+    padding: 0;
+    border: none;
+}
+
+#buscar {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 15px;
+    color: #ee3048;
+    border-radius: 0 5px 5px 0;
+    transition: 0.2s;
+}
+
+#buscar:hover {
+    color: white;
+    background-color: #ee3048; 
+}
+
+/* Barra de búsqueda */
+#operacion {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.barra-busqueda {
+	height:max-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+}
+
+.barra-busqueda form {
+	width: 800px;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+}
+
+.card-deck {
+    display: flex;
+    padding: 0;
+    margin: 20px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px ;
+}
+
+#pagination_color {
+    color: #ee3048;
+}
+
+.contenido {
+    margin-top: 0;
+    padding-top: 0;
+    flex: 1;
+}
+
+#viewp {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(60, 60, 60);
+    border: 2px solid white;
+}
+
+#viewp:hover {
+    background-color: #ee3048;
+}
+
+@media (max-width: 668px) {
+    .card-deck {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+
+#logo-bienvenida {
+    width: 500px;
+    height: auto;
+    margin: 60px auto 10px auto;
+}
+
+#bienvenida {
+    padding: 20px 0 20px 0;
+    font-size: 24px;
+    font-weight: 100;
+    color: rgb(60, 60, 60);
+    margin: 20px 20px 60px 20px;
+    text-align: center;
+}
+
+#tipo {
+    color: white;
+}
+
+h2 {
+    font-weight: 100;
+}
+
+
+
+/* Banner de venta */
+.banner-venta {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgb(200, 200, 200);
+}
+
+.banner-venta p{
+    font-size: 24px;
+}
+
+#boton-venta {
+    display: flex;
+    justify-content: right;
+}
+
+.banner-venta #viewp {
+    width: 200px;
+}
+
+h2 {
+    color: #ee3048;
+    font-weight: 200;
+}
+
+h3 {
+    padding: 20px;
+    padding-bottom: 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+select {
+    height: 60px;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+/* mapa */
+.mapa {
+    padding: 20px;
+}
+
+iframe {
+    width: 100%;
+    border-radius: 5px;
+}
