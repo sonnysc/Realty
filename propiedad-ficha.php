@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +12,19 @@
     <link rel="stylesheet"  href="css/propiedad-ficha.css">
    
 </head>
-
+<?php
+    
+    session_start();
+    $conn = mysqli_connect("localhost","root","admin123","realty");
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
+    
+    $id_propiedad = $_GET['id'];
+    $consulta = "SELECT * FROM propiedades WHERE id_propiedad = '$id_propiedad'" ;
+    $resultado  = $conn->query($consulta);
+    $fila = $resultado->fetch_assoc();
+?>
 <?php include 'navbar1.html' ?>
 
 <body>
@@ -29,12 +40,12 @@
                 <div id="gal02">
 
                     <div class="galeria" id="gal021">
-                        <img src="img/ficha3.png" alt="">
+                        <img src="img/<?php echo $fila['imagen1']?>" alt="">
                         <img src="img/ficha4.png" alt="">
                     </div>
 
                     <div class="galeria" id="gal022">
-                        <img src="img/ficha5.png" alt="">
+                        <img src="img/<?php echo $fila['imagen2']?>" alt="">
                         <img src="img/ficha6.png" alt="">
                     </div>
                     
@@ -132,7 +143,7 @@
                 
             <div class="caracteristicas">
                
-                <h2>EXTRAORDINARIA CASA QUE SE ENCUENTRA ENTRE LAS MEJORES EDIFICACIONES DEL NORTE DE COBB</h2>
+                <h2><?php echo $fila['titulo']?></h2>
                 
                 <div id="general">
                     <p id="gen">7 Habitaciones | 8 Baños | 1,184 sqm | 2 ha lot | $ 43,471/sqm</p>
