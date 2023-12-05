@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,19 @@
     <link rel="stylesheet"  href="css/propiedad-ficha.css">
    
 </head>
-
+<?php
+    
+    session_start();
+    $conn = mysqli_connect("localhost","root","admin123","realty");
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
+    
+    $id_propiedad = $_GET['id'];
+    $consulta = "SELECT * FROM propiedades WHERE id_propiedad = '$id_propiedad'" ;
+    $resultado  = $conn->query($consulta);
+    $fila = $resultado->fetch_assoc();
+?>
 <?php include 'navbar1.html' ?>
 
 <body>
@@ -29,12 +40,12 @@
                 <div id="gal02">
 
                     <div class="galeria" id="gal021">
-                        <img src="img/ficha3.png" alt="">
+                        <img src="img/<?php echo $fila['imagen1']?>" alt="">
                         <img src="img/ficha4.png" alt="">
                     </div>
 
                     <div class="galeria" id="gal022">
-                        <img src="img/ficha5.png" alt="">
+                        <img src="img/<?php echo $fila['imagen2']?>" alt="">
                         <img src="img/ficha6.png" alt="">
                     </div>
                     
@@ -56,7 +67,7 @@
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                <img class="d-block w-100" src="img/ficha1.png" alt="First slide">
+                                <img class="d-block w-100" src="img/<?php echo $fila['imagen1']?>" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
                                 <img class="d-block w-100" src="img/ficha3.png" alt="Second slide">
@@ -132,40 +143,16 @@
                 
             <div class="caracteristicas">
                
-                <h2>EXTRAORDINARIA CASA QUE SE ENCUENTRA ENTRE LAS MEJORES EDIFICACIONES DEL NORTE DE COBB</h2>
+                <h2><?php echo $fila['titulo']?></h2>
                 
                 <div id="general">
-                    <p id="gen">7 Habitaciones | 8 Baños | 1,184 sqm | 2 ha lot | $ 43,471/sqm</p>
-                    <p id="precio">$55,811,639 </p>
+                    <p id="gen"> <?php echo $fila['recamaras']?> Habitaciones | <?php echo $fila['banos']?> Baños | <?php echo $fila['area']?> sqm </p>
+                    <?php echo $fila['precio']?>
                 </div>    
                 
                 <div>
                     <h3>Descripcion</h3>
-                    <p id="descripcion" align="justify">Presentamos una casa extraordinaria que realmente se erige como una de las mejores 
-                        joyas del norte Condado de Cobb. Ubicada en medio de 3,45 acres de exquisita belleza similar a un parque, 
-                        esta gran residencia de ladrillo de cuatro lados irradia un lujo y un esplendor incomparables.  
-                        Esta impresionante finca no solo cuenta con un extenso y meticulosamente cuidado césped que podría 
-                        rivalizar con el famoso Campo de los Sueños, sino que los impresionantes terrenos también cuentan con 
-                        una miríada de lujosas comodidades para satisfacer todas sus necesidades de ocio: una cancha de tenis 
-                        iluminada para <span id="dots">...</span><span id="more"> los amantes del deporte, una piscina climatizada y un spa para la máxima relajación y un 
-                        arroyo balbuceante con cascadas para calmar los sentidos. <br><br>Al entrar en el altísimo vestíbulo de dos 
-                        pisos, uno se deja seducir al instante por la opulencia y la magnificencia de esta extraordinaria 
-                        vivienda. La escalera, elegantemente curvada, invita a uno a entrar más y conduce a la voluminosa gran 
-                        sala de dos pisos junto a la chimenea, que revela impresionantes vistas de la finca. La cocina del chef, 
-                        que incluye una gran isla central y una barra de desayuno, presenta un verdadero paraíso para los epicúreos 
-                        y ofrece deliciosos experimentos culinarios. Dentro de la casa, una acogedora sala de estar junto a la 
-                        chimenea y un comedor formal irradian una elegancia sofisticada y crean el ambiente perfecto para entretener 
-                        a los invitados. Una lujosa oficina doméstica con paneles y una biblioteca ofrecen un refugio elegante y 
-                        señorial para trabajar desde casa. Una opulenta suite principal está lujosamente decorada con una generosa 
-                        sala de estar independiente y un baño tipo centro turístico que ofrece el mejor santuario para la relajación. 
-                        <br><br>En el nivel inferior, una terraza completamente terminada se completa con un gimnasio, una espaciosa sala de 
-                        recreo, una sala de juegos y un cine en casa, que ofrecen el espacio ideal para entretenerse y organizar 
-                        grandes reuniones. La propiedad cuenta además con una fantástica suite para suegros situada sobre el garaje 
-                        para tres coches, y una casa de piscina repleta de una cocina americana y cómodos baños junto a la piscina. 
-                        Los terrenos y jardines, meticulosamente cuidados, cuentan con un atractivo cautivador, que incluye jardines 
-                        formales e informales, exuberantes paisajes y setos maduros, que ofrecen una oportunidad única en la vida que 
-                        seguramente cautivará e inspirará.</span></p> 
-                    <button onclick="myFunction()" id="myBtn">Seguir leyendo</button>
+                    <p id="descripcion" align="justify"> <?php echo $fila['descripcion']?></p> 
                 </div>
         
                 <div class="amenidades">
