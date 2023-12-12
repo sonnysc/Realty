@@ -1,6 +1,6 @@
 <?php
     
-    include '../../models/conn-vistas.php';
+    include '../../models/php/conn-vistas.php';
     
     if(isset($_POST['registrar'])){
         if(strlen($_POST['nombre'])     >= 1
